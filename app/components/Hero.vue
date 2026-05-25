@@ -18,7 +18,7 @@
         <NuxtLink to="/portfolio" class="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500 hover:scale-[1.02]">
           View My Work
         </NuxtLink>
-        <NuxtLink to="/service-details" class="rounded-xl border border-neutral-800 bg-neutral-900/50 px-6 py-3 text-sm font-semibold text-neutral-300 transition hover:bg-neutral-800">
+        <NuxtLink to="/service" class="rounded-xl border border-neutral-800 bg-neutral-900/50 px-6 py-3 text-sm font-semibold text-neutral-300 transition hover:bg-neutral-800">
           Our Services
         </NuxtLink>
       </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-const roles = ['Software Developer', 'UI/UX Designer', 'Tech Enthusiast']
+const roles = ['Software Engineer', 'Backend Engineer', 'Tech Enthusiast']
 const currentRole = ref(roles[0])
 let roleIndex = 0
 

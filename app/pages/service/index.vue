@@ -49,7 +49,7 @@
           <div class="bg-gradient-to-br from-indigo-900 to-neutral-900 p-6 rounded-2xl border border-indigo-800/50">
             <h3 class="text-xl font-bold text-white mb-2">Need Help?</h3>
             <p class="text-sm text-indigo-200 mb-4">Contact us to get a custom quote for your specific needs.</p>
-            <a href="mailto:hello@example.com" class="block w-full text-center rounded-xl bg-indigo-500 px-4 py-3 text-sm font-bold text-white hover:bg-indigo-400 transition"> Email Us </a>
+            <a href="mailto:hello@example.com" class="block w-full text-center rounded-xl bg-indigo-500 px-4 py-3 text-sm font-bold text-white hover:bg-indigo-400 transition"> Contact Us </a>
           </div>
         </aside>
       </div>
