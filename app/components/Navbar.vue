@@ -20,9 +20,9 @@
         >Services</NuxtLink>
       </div>
 
-      <a href="#contact" class="hidden rounded-full bg-indigo-600 px-5 py-2 text-xs font-semibold tracking-wide text-white transition hover:bg-indigo-500 md:block">
+      <NuxtLink to="/contact" class="hidden rounded-full bg-indigo-600 px-5 py-2 text-xs font-semibold tracking-wide text-white transition hover:bg-indigo-500 md:block">
         Get In Touch
-      </a>
+      </NuxtLink>
     </div>
   </nav>
 </template>
