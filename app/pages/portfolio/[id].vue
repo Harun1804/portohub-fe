@@ -13,18 +13,18 @@
       <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div class="space-y-6 lg:col-span-2">
           <div class="aspect-[16/10] overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900">
-            <img :src="project.img" :alt="project.title" class="h-full w-full object-cover opacity-80" />
+            <img :src="(project.img && String(project.img).trim()) ? project.img : '/images/no-image.png'" :alt="project.title" class="h-full w-full object-cover opacity-80" />
           </div>
           <div class="grid gap-6 md:grid-cols-3">
-            <section class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
+            <section v-if="project.problem && project.problem.trim() !== ''" class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
               <h2 class="text-lg font-bold text-white">Problem</h2>
               <p class="mt-3 text-sm leading-6 text-neutral-400">{{ project.problem }}</p>
             </section>
-            <section class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
+            <section v-if="project.solution && project.solution.trim() !== ''" class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
               <h2 class="text-lg font-bold text-white">Solution</h2>
               <p class="mt-3 text-sm leading-6 text-neutral-400">{{ project.solution }}</p>
             </section>
-            <section class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
+            <section v-if="project.impact && project.impact.trim() !== ''" class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
               <h2 class="text-lg font-bold text-white">Impact</h2>
               <p class="mt-3 text-sm leading-6 text-neutral-400">{{ project.impact }}</p>
             </section>
@@ -61,15 +61,15 @@
             </div>
           </div>
 
-        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-8">
-          <h2 class="text-2xl font-bold text-white">Key Contributions</h2>
-          <ul class="mt-5 space-y-3">
-            <li v-for="item in project.highlights" :key="item" class="flex items-start gap-3 text-sm leading-6 text-neutral-300">
-              <span class="mt-1 text-indigo-400">✓</span>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
-        </div>
+          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-8">
+            <h2 class="text-2xl font-bold text-white">Key Contributions</h2>
+            <ul class="mt-5 space-y-3">
+              <li v-for="item in project.highlights" :key="item" class="flex items-start gap-3 text-sm leading-6 text-neutral-300">
+                <span class="mt-1 text-indigo-400">✓</span>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </div>
         </aside>
       </div>
 
@@ -90,23 +90,23 @@
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { findProjectById } from "~/data/projects"
+import { computed } from "vue";
+import { findProjectById } from "~/data/projects";
 
-const route = useRoute()
-const router = useRouter()
-const project = computed(() => findProjectById(route.params.id))
+const route = useRoute();
+const router = useRouter();
+const project = computed(() => findProjectById(route.params.id));
 
 useHead(() => ({
   title: project.value ? `${project.value.title} | Harun Ar-Rasyid` : "Project Not Found | Harun Ar-Rasyid",
-}))
+}));
 
 function goBack() {
-  const filter = route.query.filter || "All"
-  const search = route.query.search || ""
-  const limit = route.query.limit || undefined
+  const filter = route.query.filter || "All";
+  const search = route.query.search || "";
+  const limit = route.query.limit || undefined;
 
-  if (history.length > 1) router.back()
-  else router.push({ path: "/portfolio", query: { filter, search, limit } })
+  if (history.length > 1) router.back();
+  else router.push({ path: "/portfolio", query: { filter, search, limit } });
 }
 </script>
