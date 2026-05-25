@@ -16,7 +16,7 @@
         >Projects</NuxtLink>
         <NuxtLink
           to="/service-details"
-          :class="[ 'text-sm font-medium transition', route.path === '/service-details' ? 'text-indigo-400 font-semibold' : 'text-neutral-300 hover:text-indigo-400' ]"
+          :class="[ 'text-sm font-medium transition', route.path.startsWith('/service') ? 'text-indigo-400 font-semibold' : 'text-neutral-300 hover:text-indigo-400' ]"
         >Services</NuxtLink>
       </div>
 

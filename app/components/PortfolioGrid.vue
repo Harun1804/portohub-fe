@@ -86,14 +86,14 @@ watch(
 );
 
 const projects = [
-  { id: 1, title: "E-Commerce Platform", category: "Web", description: "High-performance storefront built with cutting-edge stack.", img: "/images/portfolio-1.webp" },
-  { id: 2, title: "Mobile Banking App", category: "App", description: "Secure digital banking interface focusing on minimalist architecture.", img: "/images/portfolio-2.webp" },
-  { id: 3, title: "Cozy Nebula Identity", category: "Branding", description: "Complete minimalist brand design guidelines and creative assets.", img: "/images/portfolio-5.webp" },
-  { id: 4, title: "Automated Logistics Dashboard", category: "Web", description: "Real-time analytical microservices monitor tools.", img: "/images/portfolio-7.webp" },
-  { id: 5, title: "Social Media Scheduler", category: "Web", description: "SaaS scheduling and analytics dashboard.", img: "/images/portfolio-8.webp" },
-  { id: 6, title: "Healthcare Mobile App", category: "App", description: "Patient-focused appointment and records app.", img: "/images/portfolio-6.webp" },
-  { id: 7, title: "Brand Refresh - Orion", category: "Branding", description: "Rebranding and identity system for Orion.", img: "/images/portfolio-9.webp" },
-  { id: 8, title: "Analytics Microservice", category: "Web", description: "Stream-processing observability services.", img: "/images/portfolio-10.webp" },
+  { id: 1, title: "E-Commerce Platform", category: "Web", description: "High-performance storefront built with cutting-edge stack.", img: "/images/portfolios/portfolio-1.webp" },
+  { id: 2, title: "Mobile Banking App", category: "App", description: "Secure digital banking interface focusing on minimalist architecture.", img: "/images/portfolios/portfolio-2.webp" },
+  { id: 3, title: "Cozy Nebula Identity", category: "Branding", description: "Complete minimalist brand design guidelines and creative assets.", img: "/images/portfolios/portfolio-5.webp" },
+  { id: 4, title: "Automated Logistics Dashboard", category: "Web", description: "Real-time analytical microservices monitor tools.", img: "/images/portfolios/portfolio-7.webp" },
+  { id: 5, title: "Social Media Scheduler", category: "Web", description: "SaaS scheduling and analytics dashboard.", img: "/images/portfolios/portfolio-2.webp" },
+  { id: 6, title: "Healthcare Mobile App", category: "App", description: "Patient-focused appointment and records app.", img: "/images/portfolios/portfolio-6.webp" },
+  { id: 7, title: "Brand Refresh - Orion", category: "Branding", description: "Rebranding and identity system for Orion.", img: "/images/portfolios/portfolio-7.webp" },
+  { id: 8, title: "Analytics Microservice", category: "Web", description: "Stream-processing observability services.", img: "/images/portfolios/portfolio-10.webp" },
 ];
 
 const search = ref("");

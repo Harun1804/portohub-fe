@@ -21,7 +21,7 @@
         <h2 class="text-3xl font-bold text-white">Need a custom build?</h2>
         <p class="mt-4 text-neutral-400">We specialize in setting up robust infrastructures, clean interfaces, and highly performant web application development tailored from scratch.</p>
         <div class="mt-8">
-          <NuxtLink to="/service-details" class="rounded-xl bg-neutral-800 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
+          <NuxtLink to="/service" class="rounded-xl bg-neutral-800 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
             Explore All Services
           </NuxtLink>
         </div>
