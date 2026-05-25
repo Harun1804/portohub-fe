@@ -37,7 +37,7 @@
         class="group block overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/60 transition hover:-translate-y-1 hover:border-indigo-500/50 hover:bg-neutral-900"
       >
         <div class="relative aspect-video w-full overflow-hidden bg-neutral-800">
-          <img :src="item.img" :alt="item.title" class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-90" />
+          <img :src="(item.img && String(item.img).trim()) ? item.img : '/images/no-image.png'" :alt="item.title" class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-90" />
           <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/70 to-transparent"></div>
         </div>
         <div class="p-5">
