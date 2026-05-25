@@ -2,28 +2,47 @@
   <div>
     <Hero />
 
-    <div class="text-center mb-12">
-      <div class="flex items-center justify-center gap-4 mt-10">
-        <div>
-          <h2 class="text-3xl font-bold text-white sm:text-4xl">Recent Projects</h2>
-          <p class="mt-3 text-neutral-400">Explore some of our latest standalone projects and microservices architecture.</p>
+    <section class="border-y border-neutral-800 bg-neutral-950/70 py-16">
+      <div class="container mx-auto grid gap-6 px-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+          <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">Specialization</p>
+          <h2 class="mt-3 text-2xl font-bold text-white">Backend Systems</h2>
+          <p class="mt-3 text-sm leading-6 text-neutral-400">REST APIs, microservices, enterprise applications, and production-focused backend solutions.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+          <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">Integration</p>
+          <h2 class="mt-3 text-2xl font-bold text-white">Business Workflows</h2>
+          <p class="mt-3 text-sm leading-6 text-neutral-400">Payment gateway, SAP, Odoo ERP, RFID, and internal system synchronization.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+          <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">Delivery</p>
+          <h2 class="mt-3 text-2xl font-bold text-white">Maintainable Code</h2>
+          <p class="mt-3 text-sm leading-6 text-neutral-400">Clean APIs, database optimization, containerized deployment, and scalable architecture.</p>
         </div>
       </div>
-      <PortfolioGrid :limit="homeLimit" />
+    </section>
 
-      <div class="mt-6">
-        <NuxtLink :to="{ path: '/portfolio', query: { limit: homeLimit } }" class="text-sm text-indigo-400 hover:underline">View all projects →</NuxtLink>
+    <section class="py-20">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400">Selected Case Studies</p>
+        <h2 class="mt-3 text-3xl font-bold text-white sm:text-4xl">Enterprise Backend Projects</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-neutral-400">A curated selection of backend, integration, and microservices projects built across enterprise environments.</p>
       </div>
-    </div>
 
-    <section class="bg-neutral-950/50 border-t border-b border-neutral-800 py-20">
-      <div class="container mx-auto px-6 text-center max-w-2xl">
-        <h2 class="text-3xl font-bold text-white">Need a custom build?</h2>
-        <p class="mt-4 text-neutral-400">We specialize in setting up robust infrastructures, clean interfaces, and highly performant web application development tailored from scratch.</p>
-        <div class="mt-8">
-          <NuxtLink to="/service" class="rounded-xl bg-neutral-800 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
-            Explore All Services
-          </NuxtLink>
+      <PortfolioGrid :limit="6" />
+
+      <div class="text-center">
+        <NuxtLink to="/portfolio" class="text-sm font-semibold text-indigo-400 hover:underline">View all case studies →</NuxtLink>
+      </div>
+    </section>
+
+    <section class="border-t border-neutral-800 bg-neutral-950 py-20">
+      <div class="container mx-auto max-w-3xl px-6 text-center">
+        <h2 class="text-3xl font-bold text-white">Need a backend engineer for scalable systems?</h2>
+        <p class="mt-4 text-neutral-400">I help teams design, build, and improve backend services, system integrations, microservices, and enterprise workflows.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <NuxtLink to="/service" class="rounded-xl bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800">Explore Services</NuxtLink>
+          <NuxtLink to="/contact" class="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500">Start a Conversation</NuxtLink>
         </div>
       </div>
     </section>
@@ -31,19 +50,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
 useHead({
-  title: 'SnapFolio - High Performance Tailwind Portfolio',
+  title: "Harun Ar-Rasyid | Senior Backend Engineer",
   meta: [
-    { name: 'description', content: 'Modern clean portfolio layout built with Nuxt 4 and Tailwind CSS.' }
-  ]
+    {
+      name: "description",
+      content:
+        "Portfolio of Harun Ar-Rasyid, a backend engineer specializing in scalable backend systems, REST APIs, microservices, enterprise integration, and database optimization.",
+    },
+  ],
 })
-
-const homeLimit = ref(6)
-
-// if the page was visited with a query limit, use it
-const route = useRoute()
-if (route.query.limit) homeLimit.value = Number(route.query.limit)
-
 </script>

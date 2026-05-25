@@ -1,15 +1,18 @@
 <template>
-  <div class="min-h-screen bg-neutral-900 text-neutral-100 font-sans selection:bg-indigo-500 selection:text-white">
+  <div class="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-indigo-500 selection:text-white">
     <Navbar />
 
     <div class="transition-all duration-300">
       <slot />
     </div>
 
-    <footer class="border-t border-neutral-800 bg-neutral-950 py-8 text-center text-sm text-neutral-400">
-      <div class="container mx-auto px-4">
-        <p>&copy; {{ new Date().getFullYear() }} <span class="font-bold text-indigo-400">GalaxyFolio</span>. All Rights Reserved.</p>
-        <p class="mt-2 text-xs text-neutral-600">Built with Nuxt 4 & Tailwind CSS</p>
+    <footer class="border-t border-neutral-800 bg-neutral-950 py-10 text-sm text-neutral-400">
+      <div class="container mx-auto flex flex-col gap-4 px-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
+        <div>
+          <p class="font-semibold text-white">Harun Ar-Rasyid</p>
+          <p class="mt-1 text-xs text-neutral-500">Senior Backend Engineer · Microservices · Enterprise Integration</p>
+        </div>
+        <p class="text-xs text-neutral-500">© {{ new Date().getFullYear() }} Harun Ar-Rasyid. Built with Nuxt & Tailwind CSS.</p>
       </div>
     </footer>
   </div>
