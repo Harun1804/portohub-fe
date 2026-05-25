@@ -60,14 +60,7 @@
               <span v-for="tech in project.techStack" :key="tech" class="rounded-full bg-neutral-950 px-3 py-1.5 text-xs text-neutral-300">{{ tech }}</span>
             </div>
           </div>
-        </aside>
-      </div>
 
-      <section class="mt-14 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-        <div>
-          <h2 class="text-2xl font-bold text-white">Project Overview</h2>
-          <p class="mt-4 text-sm leading-7 text-neutral-400">{{ project.overview }}</p>
-        </div>
         <div class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-8">
           <h2 class="text-2xl font-bold text-white">Key Contributions</h2>
           <ul class="mt-5 space-y-3">
@@ -76,6 +69,14 @@
               <span>{{ item }}</span>
             </li>
           </ul>
+        </div>
+        </aside>
+      </div>
+
+      <section class="mt-14 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div>
+          <h2 class="text-2xl font-bold text-white">Project Overview</h2>
+          <p class="mt-4 text-sm leading-7 text-neutral-400">{{ project.overview }}</p>
         </div>
       </section>
     </div>
