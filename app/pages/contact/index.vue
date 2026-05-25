@@ -48,25 +48,53 @@
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
                 <label class="mb-2 block text-sm font-medium text-neutral-400">Full Name</label>
-                <input v-model="form.name" type="text" required class="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="John Doe" />
+                <input
+                  v-model="form.name"
+                  type="text"
+                  required
+                  class="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  placeholder="John Doe"
+                />
               </div>
               <div>
                 <label class="mb-2 block text-sm font-medium text-neutral-400">Email Address</label>
-                <input v-model="form.email" type="email" required class="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="john@example.com" />
+                <input
+                  v-model="form.email"
+                  type="email"
+                  required
+                  class="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  placeholder="john@example.com"
+                />
               </div>
             </div>
 
             <div>
               <label class="mb-2 block text-sm font-medium text-neutral-400">Subject</label>
-              <input v-model="form.subject" type="text" required class="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="Backend engineering opportunity" />
+              <input
+                v-model="form.subject"
+                type="text"
+                required
+                class="w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                placeholder="Backend engineering opportunity"
+              />
             </div>
 
             <div>
               <label class="mb-2 block text-sm font-medium text-neutral-400">Message</label>
-              <textarea v-model="form.message" rows="5" required class="w-full resize-none rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="Tell me about the role, project, or system you want to build..."></textarea>
+              <textarea
+                v-model="form.message"
+                rows="5"
+                required
+                class="w-full resize-none rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-white placeholder-neutral-600 transition-all focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                placeholder="Tell me about the role, project, or system you want to build..."
+              ></textarea>
             </div>
 
-            <button type="submit" :disabled="isSubmitting" class="flex w-full items-center justify-center rounded-xl bg-indigo-600 px-6 py-4 text-sm font-bold text-white transition-all hover:bg-indigo-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70">
+            <button
+              type="submit"
+              :disabled="isSubmitting"
+              class="flex w-full items-center justify-center rounded-xl bg-indigo-600 px-6 py-4 text-sm font-bold text-white transition-all hover:bg-indigo-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+            >
               <span>{{ isSubmitting ? "Sending..." : "Send Message" }}</span>
             </button>
 
@@ -79,22 +107,38 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { PROFILE } from "~/data/profile"
+import { ref } from "vue";
+import { PROFILE } from "~/data/profile";
 
-useHead({ title: "Contact | Harun Ar-Rasyid" })
+useHead({ title: "Contact | Harun Ar-Rasyid" });
 
-const form = ref({ name: "", email: "", subject: "", message: "" })
-const isSubmitting = ref(false)
-const showSuccess = ref(false)
+const form = ref({ name: "", email: "", subject: "", message: "" });
+const isSubmitting = ref(false);
+const showSuccess = ref(false);
 
 const submitForm = async () => {
-  isSubmitting.value = true
-  showSuccess.value = false
-  await new Promise((resolve) => setTimeout(resolve, 1200))
-  isSubmitting.value = false
-  showSuccess.value = true
-  form.value = { name: "", email: "", subject: "", message: "" }
-  setTimeout(() => (showSuccess.value = false), 5000)
-}
+  isSubmitting.value = true;
+  showSuccess.value = false;
+
+  try {
+    const response = await $fetch("https://portohub-be.fly.dev/api/contact", {
+      method: "POST",
+      body: form.value,
+    });
+
+    if (response.success) {
+      showSuccess.value = true;
+      form.value = { name: "", email: "", subject: "", message: "" }; // Reset Form
+    }
+  } catch (error) {
+    console.error("Gagal mengirim pesan:", error);
+    alert("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+  } finally {
+    isSubmitting.value = false;
+    // Hilangkan pesan sukses setelah 5 detik
+    setTimeout(() => {
+      showSuccess.value = false;
+    }, 5000);
+  }
+};
 </script>
