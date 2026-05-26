@@ -519,7 +519,7 @@ export const PROJECTS: Project[] = [
   {
     id: "inventory-app-v2",
     title: "Inventory App v2",
-    category: "Web & Fullstack",
+    category: "",
     client: "Freelance",
     role: "Software Developer",
     period: "May 2019",

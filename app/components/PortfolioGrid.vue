@@ -37,7 +37,15 @@
         class="group block overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/60 transition hover:-translate-y-1 hover:border-indigo-500/50 hover:bg-neutral-900"
       >
         <div class="relative aspect-video w-full overflow-hidden bg-neutral-800">
-          <img :src="(item.img && String(item.img).trim()) ? item.img : '/images/no-image.png'" :alt="item.title" class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-90" />
+          <template v-if="item.img && String(item.img).trim()">
+            <img :src="item.img" :alt="item.title" class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-90" />
+          </template>
+          <template v-else-if="item.category && String(item.category).trim()">
+            <div :style="categoryGradientStyle(item.category)" class="h-full w-full"></div>
+          </template>
+          <template v-else>
+            <img src="/images/no-image.png" :alt="item.title" class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-90" />
+          </template>
           <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/70 to-transparent"></div>
         </div>
         <div class="p-5">
@@ -67,79 +75,70 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue"
-import { PROJECTS, projectCategories } from "~/data/projects"
+import { ref, computed, watch } from "vue";
+import { PROJECTS, projectCategories } from "~/data/projects";
+import { categoryGradientStyle } from "~/utils/gradients";
 
 const props = defineProps({
   limit: { type: Number, default: null },
   paginated: { type: Boolean, default: false },
   pageSizeOptions: { type: Array, default: () => [6, 12, 24] },
-})
+});
 
-const route = useRoute()
-const pageSizeOptions = props.pageSizeOptions
-const activeFilter = ref(String(route.query.filter || "All"))
-const search = ref(String(route.query.search || ""))
-const pageSize = ref(Number(route.query.limit || props.limit || pageSizeOptions[0]))
-const currentPage = ref(1)
+const route = useRoute();
+const pageSizeOptions = props.pageSizeOptions;
+const activeFilter = ref(String(route.query.filter || "All"));
+const search = ref(String(route.query.search || ""));
+const pageSize = ref(Number(route.query.limit || props.limit || pageSizeOptions[0]));
+const currentPage = ref(1);
 
 const filteredProjects = computed(() => {
-  const term = search.value.toLowerCase().trim()
-  let list = PROJECTS
+  const term = search.value.toLowerCase().trim();
+  let list = PROJECTS;
 
   if (activeFilter.value !== "All") {
-    list = list.filter((project) => project.category === activeFilter.value)
+    list = list.filter((project) => project.category === activeFilter.value);
   }
 
-  if (!term) return list
+  if (!term) return list;
 
   return list.filter((project) => {
-    const haystack = [
-      project.title,
-      project.description,
-      project.category,
-      project.client,
-      project.role,
-      project.techStack.join(" "),
-      project.highlights.join(" "),
-    ]
-      .join(" ")
-      .toLowerCase()
+    const haystack = [project.title, project.description, project.category, project.client, project.role, project.techStack.join(" "), project.highlights.join(" ")].join(" ").toLowerCase();
 
-    return haystack.includes(term)
-  })
-})
+    return haystack.includes(term);
+  });
+});
 
-const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / pageSize.value)))
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredProjects.value.length / pageSize.value)));
 
 const displayedProjects = computed(() => {
   if (props.paginated) {
-    const start = (currentPage.value - 1) * pageSize.value
-    return filteredProjects.value.slice(start, start + pageSize.value)
+    const start = (currentPage.value - 1) * pageSize.value;
+    return filteredProjects.value.slice(start, start + pageSize.value);
   }
 
-  if (props.limit) return filteredProjects.value.slice(0, props.limit)
-  return filteredProjects.value
-})
+  if (props.limit) return filteredProjects.value.slice(0, props.limit);
+  return filteredProjects.value;
+});
 
 function selectCategory(category) {
-  activeFilter.value = category
-  currentPage.value = 1
+  activeFilter.value = category;
+  currentPage.value = 1;
 }
 
 function goToPage(page) {
-  currentPage.value = page
+  currentPage.value = page;
 }
 
 function prevPage() {
-  if (currentPage.value > 1) currentPage.value--
+  if (currentPage.value > 1) currentPage.value--;
 }
 
 function nextPage() {
-  if (currentPage.value < totalPages.value) currentPage.value++
+  if (currentPage.value < totalPages.value) currentPage.value++;
 }
 
 watch([search, pageSize], () => {
-  currentPage.value = 1
-})
+  currentPage.value = 1;
+});
 </script>
