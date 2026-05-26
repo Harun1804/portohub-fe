@@ -17,6 +17,22 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    id: "portfolio-website",
+    title: "Portfolio Website",
+    category: "Web & Fullstack",
+    client: "Internal",
+    role: "Full Stack Developer",
+    period: "Mei 2026 - Mei 2026",
+    img: "/images/portfolios/p22.png",
+    description: "A personal portfolio website built with Nuxt.js and Tailwind CSS to showcase projects and skills.",
+    overview: "This project involved designing and developing a personal portfolio website to present my projects, skills, and experience in a visually appealing and user-friendly manner. The website was built using Nuxt.js for server-side rendering and Tailwind CSS for styling.",
+    problem: "I needed a platform to effectively showcase my projects and skills to potential employers and collaborators.",
+    solution: "Developed a responsive and visually appealing portfolio website using Nuxt.js and Tailwind CSS, implementing features to highlight projects, skills, and experience.",
+    impact: "Enhanced online presence and improved opportunities for professional networking and career growth.",
+    techStack: ["Nuxt.js", "Tailwind CSS", "TypeScript", "Git", "Go", "Fiber"],
+    highlights: ["Designed and implemented a personal portfolio website.", "Showcased projects, skills, and experience in a visually appealing manner.", "Improved online presence and professional networking opportunities."],
+  },
+  {
     id: "enterprise-microservices-migration",
     title: "Enterprise Microservices Migration",
     category: "Backend & Microservices",
@@ -519,7 +535,7 @@ export const PROJECTS: Project[] = [
   {
     id: "inventory-app-v2",
     title: "Inventory App v2",
-    category: "Web & Fullstack",
+    category: "",
     client: "Freelance",
     role: "Software Developer",
     period: "May 2019",

@@ -13,7 +13,15 @@
       <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div class="space-y-6 lg:col-span-2">
           <div class="aspect-[16/10] overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900">
-            <img :src="(project.img && String(project.img).trim()) ? project.img : '/images/no-image.png'" :alt="project.title" class="h-full w-full object-cover opacity-80" />
+            <template v-if="project.img && String(project.img).trim()">
+              <img :src="project.img" :alt="project.title" class="h-full w-full object-cover opacity-80" />
+            </template>
+            <template v-else-if="project.category && String(project.category).trim()">
+              <div :style="categoryGradientStyle(project.category)" class="h-full w-full"></div>
+            </template>
+            <template v-else>
+              <img src="/images/no-image.png" :alt="project.title" class="h-full w-full object-cover opacity-80" />
+            </template>
           </div>
           <div class="grid gap-6 md:grid-cols-3">
             <section v-if="project.problem && project.problem.trim() !== ''" class="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
@@ -92,6 +100,7 @@
 <script setup>
 import { computed } from "vue";
 import { findProjectById } from "~/data/projects";
+import { categoryGradientStyle } from "~/utils/gradients";
 
 const route = useRoute();
 const router = useRouter();
