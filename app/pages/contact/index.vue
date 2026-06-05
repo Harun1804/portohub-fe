@@ -121,12 +121,12 @@ const submitForm = async () => {
   showSuccess.value = false;
 
   try {
-    const response = await $fetch("https://portohub-be.fly.dev/api/contact", {
+    const response = await $fetch("http://localhost:8080/api/contact", {
       method: "POST",
       body: form.value,
     });
 
-    if (response.success) {
+    if (response && (response.status === true || response.code === 201 || response.success === true)) {
       showSuccess.value = true;
       form.value = { name: "", email: "", subject: "", message: "" }; // Reset Form
     }
