@@ -119,14 +119,16 @@ const showSuccess = ref(false);
 const submitForm = async () => {
   isSubmitting.value = true;
   showSuccess.value = false;
+  const config = useRuntimeConfig();
 
   try {
-    const response = await $fetch("https://portohub-be.fly.dev/api/contact", {
+    const backendUrl = config.public.backendUrl || "http://localhost:8080";
+    const response = await $fetch(`${backendUrl}/api/contact`, {
       method: "POST",
       body: form.value,
     });
 
-    if (response.success) {
+    if (response && (response.status === true || response.code === 201 || response.success === true)) {
       showSuccess.value = true;
       form.value = { name: "", email: "", subject: "", message: "" }; // Reset Form
     }
