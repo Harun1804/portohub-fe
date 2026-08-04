@@ -119,9 +119,11 @@ const showSuccess = ref(false);
 const submitForm = async () => {
   isSubmitting.value = true;
   showSuccess.value = false;
+  const config = useRuntimeConfig();
 
   try {
-    const response = await $fetch("http://localhost:8080/api/contact", {
+    const backendUrl = config.public.backendUrl || "http://localhost:8080";
+    const response = await $fetch(`${backendUrl}/api/contact`, {
       method: "POST",
       body: form.value,
     });
