@@ -66,7 +66,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue"
 import { PROFILE } from "~/data/profile"
 
-const roles = ["Senior Backend Engineer", "Microservices Engineer", "Enterprise Integration Engineer", "Polyglot Backend Developer"]
+const roles = ["Senior Backend Engineer", "Microservices Engineer", "Enterprise Integration Engineer", "Backend Developer"]
 const currentRole = ref(roles[0])
 let roleIndex = 0
 let intervalId
