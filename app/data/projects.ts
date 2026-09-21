@@ -1,3 +1,5 @@
+import Categories from "./categories";
+
 export interface Project {
   id: string;
   title: string;
@@ -16,10 +18,26 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+    {
+    id: "shopping-tracker",
+    title: "Shopping Tracker",
+    category: Categories.Mobile,
+    client: "Internal",
+    role: "Full Stack Developer",
+    period: "September 2026 - September 2026",
+    img: "/images/portfolios/p23.png",
+    description: "A mobile application built with Kotlin to help users track their shopping lists and calculate the transactions.",
+    overview: "This project involved designing and developing a mobile application to help users efficiently manage their shopping lists and calculate transactions. The app was built using Kotlin for Android development.",
+    problem: "Hard to keep track of shopping and open notes & calculators simultaneously. Sometimes users forget to record their expenses accurately.",
+    solution: "Developed a mobile application using Kotlin that allows users to create and manage shopping lists, and calculate transactions automatically.",
+    impact: "Improved users' ability to manage their shopping activities and track transactions accurately.",
+    techStack: ["Kotlin", "Android Studio", "SQLite", "Git"],
+    highlights: ["Developed a mobile application for shopping list management.", "Enabled users to calculate transactions automatically.", "Improved overall shopping experience for users."],
+  },
   {
     id: "portfolio-website",
     title: "Portfolio Website",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Internal",
     role: "Full Stack Developer",
     period: "Mei 2026 - Mei 2026",
@@ -35,7 +53,7 @@ export const PROJECTS: Project[] = [
   {
     id: "enterprise-microservices-migration",
     title: "Enterprise Microservices Migration",
-    category: "Backend",
+    category: Categories.Backend,
     client: "S8LLS",
     role: "Backend Developer",
     period: "Mar 2026 - Apr 2026",
@@ -52,7 +70,7 @@ export const PROJECTS: Project[] = [
   {
     id: "diarium-super-apps-enhancement",
     title: "Diarium Super Apps Enhancement",
-    category: "Backend",
+    category: Categories.Backend,
     client: "PT Swamedia Informatika",
     role: "Backend Developer",
     period: "Feb 2026 - Present",
@@ -68,7 +86,7 @@ export const PROJECTS: Project[] = [
   {
     id: "abc-payment-sap-integration",
     title: "ABC System with Payment and SAP Integration",
-    category: "Backend",
+    category: Categories.Backend,
     client: "PT Swamedia Informatika",
     role: "Backend Developer",
     period: "Oct 2024 - Dec 2025",
@@ -85,7 +103,7 @@ export const PROJECTS: Project[] = [
   {
     id: "rfid-gallon-tracking-system",
     title: "RFID-Based Gallon Tracking System",
-    category: "IOT",
+    category: Categories.IOT,
     client: "PT Swamedia Informatika",
     role: "Fullstack Developer",
     period: "Aug 2023 - Oct 2023",
@@ -101,7 +119,7 @@ export const PROJECTS: Project[] = [
   {
     id: "enterprise-risk-management-system",
     title: "Enterprise Risk Management System",
-    category: "Backend",
+    category: Categories.Backend,
     client: "PT Swamedia Informatika",
     role: "Backend Developer",
     period: "Jan 2023 - Aug 2023",
@@ -117,7 +135,7 @@ export const PROJECTS: Project[] = [
   {
     id: "integrated-talent-management-system",
     title: "Integrated Talent Management System",
-    category: "Backend",
+    category: Categories.Backend,
     client: "PT Swamedia Informatika",
     role: "Backend Developer",
     period: "Jul 2022 - Jan 2023",
@@ -133,7 +151,7 @@ export const PROJECTS: Project[] = [
   {
     id: "odoo-erp-project-management-integration",
     title: "Odoo ERP and Project Management Integration",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "PT Global Service Indonesia",
     role: "Fullstack Developer",
     period: "Mar 2022 - Apr 2022",
@@ -149,7 +167,7 @@ export const PROJECTS: Project[] = [
   {
     id: "attendance-payroll-system",
     title: "Attendance and Payroll System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "PT Global Service Indonesia",
     role: "Fullstack Developer",
     period: "Jan 2022 - Jun 2022",
@@ -166,7 +184,7 @@ export const PROJECTS: Project[] = [
   {
     id: "petalin-project",
     title: "Petalin Project",
-    category: "Backend",
+    category: Categories.Backend,
     client: "Freelance",
     role: "Fullstack Developer",
     period: "Oct 2025 - Dec 2025",
@@ -182,7 +200,7 @@ export const PROJECTS: Project[] = [
   {
     id: "reddoorz-internal-app",
     title: "Reddoorz Internal App",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "S8LLS",
     role: "Software Developer",
     period: "Mar 2026 - Apr 2026",
@@ -198,7 +216,7 @@ export const PROJECTS: Project[] = [
   {
     id: "erm-finnet-backend",
     title: "ERM Finnet Backend",
-    category: "Backend",
+    category: Categories.Backend,
     client: "Freelance",
     role: "Backend Developer",
     period: "Feb 2025 - Sep 2025",
@@ -214,7 +232,7 @@ export const PROJECTS: Project[] = [
   {
     id: "clinic-kpi-system",
     title: "Clinic KPI System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Fullstack Developer",
     period: "Sep 2024 - Oct 2024",
@@ -230,7 +248,7 @@ export const PROJECTS: Project[] = [
   {
     id: "online-warehouse-management-system",
     title: "Online Warehouse Management System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Fullstack Developer",
     period: "Sep 2024 - Oct 2024",
@@ -246,7 +264,7 @@ export const PROJECTS: Project[] = [
   {
     id: "warehouse-scanner-system",
     title: "Warehouse Scanner System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Fullstack Developer",
     period: "Jul 2024",
@@ -262,7 +280,7 @@ export const PROJECTS: Project[] = [
   {
     id: "mtm-rups-monitoring",
     title: "MTM (RUPS Monitoring)",
-    category: "Backend",
+    category: Categories.Backend,
     client: "PT Swamedia Informatika",
     role: "Backend Developer",
     period: "Jan 2024 - Jun 2024",
@@ -278,7 +296,7 @@ export const PROJECTS: Project[] = [
   {
     id: "company-profile-revamp-cms",
     title: "Company Profile Revamp & CMS",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "PT Swamedia Informatika",
     role: "Fullstack Developer",
     period: "Oct 2023 - Feb 2024",
@@ -294,7 +312,7 @@ export const PROJECTS: Project[] = [
   {
     id: "crew-task-monitoring-system",
     title: "Crew Task Monitoring System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Backend Developer",
     period: "Sep 2023 - Jan 2024",
@@ -310,7 +328,7 @@ export const PROJECTS: Project[] = [
   {
     id: "safetyroad-cms-enhancement",
     title: "SafetyRoad.id CMS Enhancement",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Fullstack Developer",
     period: "Apr 2022 - Jun 2022",
@@ -326,7 +344,7 @@ export const PROJECTS: Project[] = [
   {
     id: "correspondence-management-system",
     title: "Correspondence Management System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Dec 2021",
@@ -342,7 +360,7 @@ export const PROJECTS: Project[] = [
   {
     id: "vegetable-image-classification-web",
     title: "Vegetable Image Classification Web",
-    category: "Data & Algorithms",
+    category: Categories.DataAndAlgorithms,
     client: "Freelance",
     role: "Frontend Developer",
     period: "Nov 2021",
@@ -358,7 +376,7 @@ export const PROJECTS: Project[] = [
   {
     id: "laboratory-equipment-management",
     title: "Laboratory Equipment Management",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Nov 2021",
@@ -374,7 +392,7 @@ export const PROJECTS: Project[] = [
   {
     id: "intelligo-course-management",
     title: "Intelligo.id Course Management",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Fullstack Developer",
     period: "Sep 2021 - Oct 2021",
@@ -390,7 +408,7 @@ export const PROJECTS: Project[] = [
   {
     id: "inventory-management-system-v3",
     title: "Inventory Management System v3",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Oct 2021",
@@ -406,7 +424,7 @@ export const PROJECTS: Project[] = [
   {
     id: "supervisor-recommendation-system",
     title: "Supervisor Recommendation System",
-    category: "Data & Algorithms",
+    category: Categories.DataAndAlgorithms,
     client: "Politeknik Pos Indonesia",
     role: "Software Developer",
     period: "Jan 2021 - Aug 2021",
@@ -422,7 +440,7 @@ export const PROJECTS: Project[] = [
   {
     id: "barbershop-management-system",
     title: "Barbershop Management System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Feb 2021",
@@ -438,7 +456,7 @@ export const PROJECTS: Project[] = [
   {
     id: "simple-queue-management-system",
     title: "Simple Queue Management System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Feb 2021",
@@ -454,7 +472,7 @@ export const PROJECTS: Project[] = [
   {
     id: "student-information-board",
     title: "Student Information Board",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Frontend Developer",
     period: "Jan 2021",
@@ -470,7 +488,7 @@ export const PROJECTS: Project[] = [
   {
     id: "course-marketplace-system",
     title: "Course Marketplace System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Kampung Course Indonesia",
     role: "Software Developer",
     period: "Oct 2020 - Dec 2020",
@@ -486,7 +504,7 @@ export const PROJECTS: Project[] = [
   {
     id: "marketplace-system-v2",
     title: "Marketplace System v2 (Collaborative Filtering)",
-    category: "Data & Algorithms",
+    category: Categories.DataAndAlgorithms,
     client: "Politeknik Pos Indonesia",
     role: "Software Developer",
     period: "Oct 2020 - Dec 2020",
@@ -503,7 +521,7 @@ export const PROJECTS: Project[] = [
   {
     id: "laundry-management-system",
     title: "Laundry Management System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Jul 2019",
@@ -519,7 +537,7 @@ export const PROJECTS: Project[] = [
   {
     id: "archery-club-management",
     title: "Archery Club Management",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Jun 2019",
@@ -535,7 +553,7 @@ export const PROJECTS: Project[] = [
   {
     id: "inventory-app-v2",
     title: "Inventory App v2",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "May 2019",
@@ -551,7 +569,7 @@ export const PROJECTS: Project[] = [
   {
     id: "correspondence-monitoring-app",
     title: "Correspondence Monitoring App",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "May 2019",
@@ -567,7 +585,7 @@ export const PROJECTS: Project[] = [
   {
     id: "training-registration-email-blasting",
     title: "Training Registration & Email Blasting",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "May 2019",
@@ -583,7 +601,7 @@ export const PROJECTS: Project[] = [
   {
     id: "vehicle-rental-system",
     title: "Vehicle Rental System",
-    category: "Data & Algorithms",
+    category: Categories.DataAndAlgorithms,
     client: "Politeknik Pos Indonesia",
     role: "Software Developer",
     period: "Mar 2019 - Apr 2019",
@@ -599,7 +617,7 @@ export const PROJECTS: Project[] = [
   {
     id: "in-transit-warehouse-system",
     title: "In-Transit Warehouse System",
-    category: "Data & Algorithms",
+    category: Categories.DataAndAlgorithms,
     client: "Politeknik Pos Indonesia",
     role: "Software Developer",
     period: "Sep 2018 - Dec 2018",
@@ -615,7 +633,7 @@ export const PROJECTS: Project[] = [
   {
     id: "simple-inventory-application",
     title: "Simple Inventory Application",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Apr 2018",
@@ -631,7 +649,7 @@ export const PROJECTS: Project[] = [
   {
     id: "cafe-management-system",
     title: "Cafe Management System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Apr 2018",
@@ -647,7 +665,7 @@ export const PROJECTS: Project[] = [
   {
     id: "alumni-management-information-system",
     title: "Alumni Management Information System",
-    category: "Fullstack Web",
+    category: Categories.FullstackWeb,
     client: "Freelance",
     role: "Software Developer",
     period: "Mar 2018",
@@ -666,7 +684,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const projectCategories = ["All", ...Array.from(new Set(PROJECTS.map((project) => project.category)))];
+export const projectCategories = ["All", ...Object.values(Categories)];
 
 export function findProjectById(id: string | string[] | undefined) {
   return PROJECTS.find((project) => project.id === id);
